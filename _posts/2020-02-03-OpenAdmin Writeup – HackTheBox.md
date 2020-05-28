@@ -2,10 +2,10 @@
 title: "OpenAdmin Writeup – HackTheBox"
 date: 2020-03-02
 tags: [HackTheBox, Penetration Testing]
-header:
 excerpt: "Hack The Box, Penetration Testing"
 mathjax: "true"
 ---
+<img src="/images/OpenAdmin-Writeup/OpenAdmin.png" style="display: block; margin: auto;" />
 
 # Scanning
 
