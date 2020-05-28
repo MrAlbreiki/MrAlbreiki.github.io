@@ -85,7 +85,7 @@ analytics:
 # Site Author
 author:
   name             : "Abdulrahman Albreiki"
-  avatar           : "/images/bio-pic-2.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/images/AP.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Interested in Cybersecurity in general, and Penetration Testing and Incident Handling in particular."
   #location         : "Your Location"
   email            :
